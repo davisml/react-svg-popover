@@ -103,6 +103,10 @@ const Popover = (props) => {
     	divStyle.filter = filter
     }
 
+    if (style.color) {
+    	divStyle.color = style.color
+    }
+
     return <div className={ className } style={ divStyle }>
         <svg {...svgSize}>
             <defs key="defs">

@@ -12,7 +12,8 @@ class App extends Component {
 			popoverHeight: 200,
 			arrowWidth: 32,
 			arrowLength: 16,
-			showDropShadow: true
+			showDropShadow: true,
+			showDark: false
 		}
 	}
 
@@ -41,15 +42,21 @@ class App extends Component {
 			}
 		}
 
-		const {arrowDirection, showDropShadow, arrowWidth, arrowLength, popoverWidth, popoverHeight} = this.state
+		const {arrowDirection, showDark, showDropShadow, arrowWidth, arrowLength, popoverWidth, popoverHeight} = this.state
 
-		const popoverStyle = {
+		let popoverStyle = {
 			arrowDirection, position: 'relative', top: 10, left: 0,
 			width: Number(popoverWidth),
 			height: Number(popoverHeight),
 			arrowWidth: Number(arrowWidth),
 			arrowLength: Number(arrowLength),
 			dropShadow: (showDropShadow) ? '0px 1px 5px rgba(0,0,0,0.1)' : null
+		}
+
+		if (showDark) {
+			popoverStyle.background = 'rgb(60,60,60)'
+			popoverStyle.stroke = 'rgb(40,40,40)'
+			popoverStyle.color = 'rgb(255,255,255)'
 		}
 
 		return <div>
@@ -78,6 +85,9 @@ class App extends Component {
 			</div>
 			<div>
 				<input type="checkbox" checked={ showDropShadow } onChange={ handleToggle('showDropShadow') } /> Show drop shadow
+			</div>
+			<div>
+				<input type="checkbox" checked={ showDark } onChange={ handleToggle('showDark') } /> Use dark background
 			</div>
 			<Popover style={ popoverStyle }>
 				This is a popover!
