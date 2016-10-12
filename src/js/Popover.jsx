@@ -81,7 +81,8 @@ const Popover = (props) => {
         left: (arrowDirection === 3) ? (strokeWidth + arrowLength) : strokeWidth,
         width: pathSize.width,
         height: pathSize.height,
-        padding: style.padding || 0
+        padding: style.padding || 0,
+        boxSizing: 'border-box'
     }
 
     let divStyle = {
