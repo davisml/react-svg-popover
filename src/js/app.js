@@ -60,33 +60,33 @@ class App extends Component {
 		return <div>
 			<div id="options">
 				<div className="form-group">
-					<span>Arrow Direction: </span>
+					<label>Arrow Direction: </label>
 					<button onClick={ changeDirection(0) }>Top</button>
 					<button onClick={ changeDirection(1) }>Right</button>
 					<button onClick={ changeDirection(2) }>Bottom</button>
 					<button onClick={ changeDirection(3) }>Left</button>
 				</div>
 				<div className="form-group">
-					<span>Arrow Width: </span>
+					<label>Arrow Width: </label>
 					<input type="number" value={ arrowWidth } onChange={ handleChange('arrowWidth') } />
 				</div>
 				<div className="form-group">
-					<span>Arrow Length: </span>
+					<label>Arrow Length: </label>
 					<input type="number" value={ arrowLength } onChange={ handleChange('arrowLength') } />
 				</div>
 				<div className="form-group">
-					<span>Popover width: </span>
+					<label>Popover width: </label>
 					<input type="number" value={ popoverWidth } onChange={ handleChange('popoverWidth') } />
 				</div>
 				<div className="form-group">
-					<span>Popover Height: </span>
+					<label>Popover Height: </label>
 					<input type="number" value={ popoverHeight } onChange={ handleChange('popoverHeight') } />
 				</div>
 				<div className="form-separator" />
-				<div className="form-group">
+				<div className="form-group center">
 					<input type="checkbox" checked={ showDropShadow } onChange={ handleToggle('showDropShadow') } /> Show drop shadow
 				</div>
-				<div className="form-group">
+				<div className="form-group center">
 					<input type="checkbox" checked={ showDark } onChange={ handleToggle('showDark') } /> Use dark background
 				</div>
 			</div>
