@@ -13,6 +13,37 @@ body
 	padding 20px
 	box-sizing border-box
 	
+	.btn-group
+		display inline-block
+		
+		button
+			background linear-gradient(top, rgb(255,255,255), rgb(245,245,245))
+			border 1px solid rgb(180,180,180)
+			border-left none
+			margin 0px
+			// width 46px
+			padding 5px 6px
+			
+			&:active
+				color black
+				
+				&:hover
+					background linear-gradient(bottom, rgb(240,240,240), rgb(235,235,235))
+					box-shadow inset 0px 1px 3px rgba(0,0,0,0.1)
+			
+			&.active
+				background linear-gradient(bottom, rgb(240,240,240), rgb(235,235,235))
+				box-shadow inset 0px 1px 3px rgba(0,0,0,0.1)
+			
+			&:first-child
+				border-left 1px solid rgb(180,180,180)
+				border-top-left-radius 2px
+				border-bottom-left-radius 2px
+			
+			&:last-child
+				border-top-right-radius 2px
+				border-bottom-right-radius 2px
+	
 	.form-group
 		padding-top 10px
 		padding-bottom 10px

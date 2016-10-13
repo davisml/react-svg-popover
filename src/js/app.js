@@ -57,30 +57,42 @@ class App extends Component {
 			popoverStyle.color = 'rgb(255,255,255)'
 		}
 
+		const directions = ['Top', 'Right', 'Bottom', 'Left']
+		const renderDirectionButton = (direction, index) => {
+			let buttonProps = {
+				key: `direction-${ index }`, onClick: changeDirection(index)
+			}
+
+			if (index === this.state.arrowDirection) {
+				buttonProps.className = 'active'
+			}
+
+			return <button {...buttonProps}>{ direction }</button>
+		}
+
 		return <div>
 			<div id="options">
 				<div className="form-group">
 					<label>Arrow Direction: </label>
-					<button onClick={ changeDirection(0) }>Top</button>
-					<button onClick={ changeDirection(1) }>Right</button>
-					<button onClick={ changeDirection(2) }>Bottom</button>
-					<button onClick={ changeDirection(3) }>Left</button>
+					<div className="btn-group">
+						{ directions.map(renderDirectionButton) }
+					</div>
 				</div>
 				<div className="form-group">
-					<label>Arrow Width: </label>
-					<input type="number" value={ arrowWidth } onChange={ handleChange('arrowWidth') } />
+					<label htmlFor="arrowWidth">Arrow Width: </label>
+					<input id="arrowWidth" type="number" value={ arrowWidth } max={ popoverWidth } onChange={ handleChange('arrowWidth') } />
 				</div>
 				<div className="form-group">
-					<label>Arrow Length: </label>
-					<input type="number" value={ arrowLength } onChange={ handleChange('arrowLength') } />
+					<label htmlFor="arrowLength">Arrow Length: </label>
+					<input id="arrowLength" type="number" value={ arrowLength } onChange={ handleChange('arrowLength') } />
 				</div>
 				<div className="form-group">
-					<label>Popover width: </label>
-					<input type="number" value={ popoverWidth } onChange={ handleChange('popoverWidth') } />
+					<label htmlFor="popoverWidth">Popover Width: </label>
+					<input id="popoverWidth" type="number" min={ arrowWidth } value={ popoverWidth } onChange={ handleChange('popoverWidth') } />
 				</div>
 				<div className="form-group">
-					<label>Popover Height: </label>
-					<input type="number" value={ popoverHeight } onChange={ handleChange('popoverHeight') } />
+					<label htmlFor="popoverHeight">Popover Height: </label>
+					<input id="popoverHeight" type="number" min={ arrowWidth } value={ popoverHeight } onChange={ handleChange('popoverHeight') } />
 				</div>
 				<div className="form-separator" />
 				<div className="form-group center">
