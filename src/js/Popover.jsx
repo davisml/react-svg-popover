@@ -21,12 +21,7 @@ const Popover = (props) => {
         dropShadow: '0px 1px 5px rgba(0,0,0,0.1)',
         background: 'linear-gradient(90deg, rgb(252, 252, 252), rgb(246, 246, 246))'
     })
-
-    // const gradient = 'linear-gradient(90deg, rgb(252, 252, 252), rgb(246, 246, 246))'
-    // console.log(parsedGradient)
-
-    //'content-box'
-
+    
     const {className} = props
     const {arrowCenter, arrowLength, arrowWidth, borderRadius, stroke, strokeWidth} = style
     let {arrowDirection} = style
@@ -52,7 +47,7 @@ const Popover = (props) => {
 	        svgSize.height = (svgSize.height + arrowLength)
 	    }
 	}
-
+    
     pathSize.width -= (strokeWidth * 2)
     pathSize.height -= (strokeWidth * 2)
 

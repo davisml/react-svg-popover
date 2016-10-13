@@ -18,10 +18,8 @@ class App extends Component {
 	}
 
 	render() {
-		// var updateButtonClass = 'btn btn-primary disabled'
 		const changeDirection = (arrowDirection) => {
 			return (event) => {
-				console.log(`Set direction: ${ arrowDirection }`)
 				this.setState({ arrowDirection })
 			}
 		}

@@ -70,37 +70,43 @@ const positionsForOrientation = (orientation) => {
 	return positions
 }
 
-// const GradientStop = (props) => {
-// }
-
 const LinearGradient = (props) => {
 	const {id, colorStops, orientation} = props
 
-	console.log("orientation")
-	// console.log(orientation)
-
 	const positions = positionsForOrientation(orientation)
-
-	console.log(positions)
-
-	// console.log("Color stops")
-	// console.log(colorStops)
 
 	const renderColorStop = (colorStop, index) => {
 		const key = `color-stop-${ index }`
 		const offset = (index / (colorStops.length - 1)) * 100 + '%'
 		let stopColor = 'rgb(0,0,0)'
 
-		// if (colorStops.type = )
-		// console.log(colorStop.type)
-		// console.log(colorStop.value)
+		switch (colorStop.type) {
+			case 'rgb': {
+				const [r, g, b] = colorStop.value
+				stopColor = `rgb(${ r },${ g },${ b })`
+				break
+			}
 
-		if (colorStop.type == 'rgb') {
-			const [r, g, b] = colorStop.value
+			case 'rgba': {
+				const [r, g, b, a] = colorStop.value
+				stopColor = `rgba(${ r },${ g },${ b },${ a })`
+				break
+			}
+
+			case 'hex': {
+				stopColor = `#${ colorStop.value }`
+				break
+			}
+
+			case 'literal': {
+				console.log(`Literal '${ colorStop.value }' is not supported`)
+				break
+			}
 			
-			stopColor = `rgb(${ r },${ g },${ b })`
+			default:
+				break
 		}
-
+		
 		return <stop key={ key } offset={ offset } stopColor={ stopColor } />
 	}
 
