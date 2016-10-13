@@ -1,6 +1,8 @@
 import {generatePathData} from './generatePathData'
 import React from 'react'
 import _ from 'underscore'
+import GradientParser from 'gradient-parser'
+import LinearGradient from './LinearGradient.jsx'
 
 const Popover = (props) => {
     const style = _.defaults(props.style, {
@@ -16,8 +18,12 @@ const Popover = (props) => {
         padding: 10,
         boxSizing: 'content-box',
         position: 'absolute',
-        dropShadow: '0px 1px 5px rgba(0,0,0,0.1)'
+        dropShadow: '0px 1px 5px rgba(0,0,0,0.1)',
+        background: 'linear-gradient(90deg, rgb(252, 252, 252), rgb(246, 246, 246))'
     })
+
+    // const gradient = 'linear-gradient(90deg, rgb(252, 252, 252), rgb(246, 246, 246))'
+    // console.log(parsedGradient)
 
     //'content-box'
 
@@ -68,11 +74,19 @@ const Popover = (props) => {
     }
 
     const gradientID = 'popoverGrad'
+    const hasGradient = (style.background.indexOf('linear-gradient') === 0)
+    const fill = hasGradient ? `url(#${ gradientID })` : style.background
+    const transform = `translate(${ pathOrigin.x }, ${ pathOrigin.y })`
+    
+    let linearGradient = null
+
+    if (hasGradient) {
+        const gradientProps = GradientParser.parse(style.background)[0]
+        linearGradient = <LinearGradient id={ gradientID } {...gradientProps} />
+    }
 
     const pathProps = {
-        fill: (style.background || `url(#${ gradientID })`),
-        transform: `translate(${ pathOrigin.x }, ${ pathOrigin.y })`,
-        stroke, strokeWidth, d: pathData
+        fill, transform, stroke, strokeWidth, d: pathData
     }
 
     const contentStyle = {
@@ -110,10 +124,7 @@ const Popover = (props) => {
     return <div className={ className } style={ divStyle }>
         <svg {...svgSize}>
             <defs key="defs">
-                <linearGradient id="popoverGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="rgb(252, 252, 252)"/>
-                    <stop offset="100%" stopColor="rgb(246, 246, 246)"/>
-                </linearGradient>
+                { linearGradient }
             </defs>
             <path {...pathProps} />
         </svg>
