@@ -12,6 +12,7 @@ class App extends Component {
 			popoverHeight: 200,
 			arrowWidth: 32,
 			arrowLength: 16,
+			arrowCenter: 0.5,
 			showDropShadow: true,
 			showDark: false
 		}
@@ -40,7 +41,7 @@ class App extends Component {
 			}
 		}
 
-		const {arrowDirection, showDark, showDropShadow, arrowWidth, arrowLength, popoverWidth, popoverHeight} = this.state
+		const {arrowDirection, arrowCenter, showDark, showDropShadow, arrowWidth, arrowLength, popoverWidth, popoverHeight} = this.state
 
 		let popoverStyle = {
 			arrowDirection, top: '50%', left: '50%',
@@ -48,6 +49,7 @@ class App extends Component {
 			height: Number(popoverHeight),
 			arrowWidth: Number(arrowWidth),
 			arrowLength: Number(arrowLength),
+			arrowCenter: Math.max(Math.min(Number(arrowCenter), 1.0), 0.0),
 			dropShadow: (showDropShadow) ? '0px 1px 5px rgba(0,0,0,0.1)' : null
 		}
 
@@ -85,6 +87,10 @@ class App extends Component {
 				<div className="form-group">
 					<label htmlFor="arrowLength">Arrow Length: </label>
 					<input id="arrowLength" type="number" value={ arrowLength } onChange={ handleChange('arrowLength') } />
+				</div>
+				<div className="form-group">
+					<label htmlFor="arrowCenter">Arrow Center: </label>
+					<input id="arrowCenter" type="number" min={ 0.0 } max={ 1.0 } step={ 0.01 } value={ arrowCenter } onChange={ handleChange('arrowCenter') } />
 				</div>
 				<div className="form-group">
 					<label htmlFor="popoverWidth">Popover Width: </label>
