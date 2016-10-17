@@ -11,7 +11,7 @@ Live demo: https://davisml.github.io/react-svg-popover/
 
 The easiest way to use React SVG Popover is to install it from NPM and import it (using [Browserify](http://browserify.org), etc).
 
-```javascript
+```sh
 npm install react-svg-popover --save
 ```
 
@@ -25,7 +25,7 @@ import Popover from 'react-svg-popover'
 
 React SVG Popover can be customized using the style property. The default style is provided below as reference.
 
-```jsx
+```js
 const defaultStyle = {
     arrowCenter: 0.5,
     arrowDirection: Popover.direction.bottom,
@@ -42,8 +42,10 @@ const defaultStyle = {
     dropShadow: '0px 1px 5px rgba(0,0,0,0.1)',
     background: 'linear-gradient(90deg, rgb(252, 252, 252), rgb(246, 246, 246))'
 }
+```
 
-<Popover style={ defaultStyle}>
+```jsx
+return <Popover style={ defaultStyle }>
     Popover content
 </Popover>
 ```
