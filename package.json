@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/davisml/react-svg-popover"
   },
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "React Popover component rendered with SVG",
   "main": "index.js",
   "scripts": {

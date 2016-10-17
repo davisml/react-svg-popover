@@ -19,7 +19,7 @@ Now you can import react-svg-popover as follows:
 
 ```js
 import Popover from 'react-svg-popover'
-``
+```
 
 ## Usage
 
