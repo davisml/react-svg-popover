@@ -1,5 +1,9 @@
 {
   "name": "react-svg-popover",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davisml/react-svg-popover"
+  },
   "version": "1.0.0",
   "description": "React Popover component rendered with SVG",
   "main": "index.js",
@@ -10,6 +14,12 @@
   },
   "author": "Mark Davis",
   "license": "MIT",
+  "keywords": [
+    "react",
+    "react-component",
+    "svg",
+    "popover"
+  ],
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-preset-es2015": "^6.3.13",
@@ -31,19 +41,18 @@
     "utils-merge": "^1.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.6.1"
-  },
-  "dependencies": {
-    "bootstrap-styl": "^5.0.3",
+    "watchify": "^3.6.1",
     "connect-livereload": "^0.5.3",
     "express": "^4.13.3",
-    "gradient-parser": "git+https://github.com/rafaelcaricio/gradient-parser.git",
-    "mime": "^1.3.4",
-    "nib": "^1.1.0",
-    "react": "^0.14.5",
-    "react-dom": "^0.14.5",
     "stylus": "^0.52.4",
     "tiny-lr": "^0.2.1",
+    "mime": "^1.3.4",
+    "nib": "^1.1.0"
+  },
+  "dependencies": {
+    "gradient-parser": "git+https://github.com/rafaelcaricio/gradient-parser.git",
+    "react": "^0.14.5",
+    "react-dom": "^0.14.5",
     "underscore": "^1.8.3"
   }
 }
