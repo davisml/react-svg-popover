@@ -4,12 +4,12 @@
     "type": "git",
     "url": "https://github.com/davisml/react-svg-popover"
   },
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React Popover component rendered with SVG",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/babel ./src/js/Popover.jsx -o index.js",
+    "build": "./node_modules/.bin/browserify -t babelify ./src/js/Popover.jsx -o ./index.js",
     "prepublish": "npm run build"
   },
   "author": "Mark Davis",
