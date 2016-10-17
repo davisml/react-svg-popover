@@ -4,11 +4,14 @@
   "description": "React Popover component rendered with SVG",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/babel ./src/js/Popover.jsx -o index.js",
+    "prepublish": "npm run build"
   },
   "author": "Mark Davis",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.16.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.16.0",
     "babelify": "^7.2.0",
