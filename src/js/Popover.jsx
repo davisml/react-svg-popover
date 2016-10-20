@@ -207,8 +207,8 @@ const Popover = (props) => {
         left: style.left,
         right: style.right,
         bottom: style.bottom,
-        width,
-        height
+        width: svgSize.width,
+        height: svgSize.height
     }
 
     // Apply drop shadow
