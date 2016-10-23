@@ -222,8 +222,8 @@ var Popover = function Popover(props) {
         left: style.left,
         right: style.right,
         bottom: style.bottom,
-        width: width,
-        height: height
+        width: svgSize.width,
+        height: svgSize.height
     };
 
     // Apply drop shadow
